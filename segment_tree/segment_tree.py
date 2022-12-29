@@ -109,6 +109,8 @@ class SegmentTreeNode:
             return
         if start <= self.range[0] and self.range[1] <= end:
             self.range_value = value
+            self.parent_tree.array[self.range[0]] = self.range_value
+            self.parent_tree.array[self.range[1]] = self.range_value
             self._sync()
             return
         self._push()
